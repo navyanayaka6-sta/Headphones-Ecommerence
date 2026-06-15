@@ -1,0 +1,140 @@
+.page-heading {
+  padding: 30px 0 18px;
+}
+
+.page-heading h1 {
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  line-height: 1;
+}
+
+.collection-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.8fr);
+  gap: 20px;
+  padding-bottom: 40px;
+}
+
+.collection-list {
+  display: grid;
+  gap: 18px;
+}
+
+.collection-item {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 18px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--surface);
+  box-shadow: var(--shadow-soft);
+}
+
+.item-visual img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 18px;
+}
+
+.item-copy {
+  display: grid;
+  gap: 12px;
+}
+
+.item-copy h2 {
+  margin: 0;
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: 1.3rem;
+  line-height: 1.2;
+}
+
+.item-copy p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.item-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.item-price {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.item-price strong {
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: 1.8rem;
+}
+
+.item-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+.item-actions .btn {
+  flex: 1 1 180px;
+}
+
+.summary-panel {
+  padding: 24px;
+  align-self: start;
+  position: sticky;
+  top: 94px;
+}
+
+.summary-panel h2 {
+  margin: 0 0 16px;
+}
+
+.summary-stats {
+  display: grid;
+  gap: 12px;
+}
+
+.summary-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.summary-row span {
+  color: var(--muted);
+}
+
+.summary-row strong {
+  font-family: "Space Grotesk", system-ui, sans-serif;
+}
+
+.summary-actions {
+  display: grid;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+@media (max-width: 960px) {
+  .collection-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-panel {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .collection-item {
+    grid-template-columns: 1fr;
+  }
+}

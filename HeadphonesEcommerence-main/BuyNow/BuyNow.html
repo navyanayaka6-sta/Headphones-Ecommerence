@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SonicCart | Checkout</title>
+    <!-- Preconnect reduces the delay before Google Fonts start downloading. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Brand and display fonts shared across the storefront experience. -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Shared base styles come first, then page-specific checkout styling. -->
+    <link rel="stylesheet" href="../shared/base.css" />
+    <link rel="stylesheet" href="BuyNow.css" />
+  </head>
+  <body>
+    <!-- Header keeps navigation and theme controls consistent with the rest of the app. -->
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="../HomePage/index.html" class="brand">
+          <span class="brand-mark">SC</span>
+          <span class="brand-copy">
+            <span class="brand-kicker">Headphones demo</span>
+            <span class="brand-title">SonicCart</span>
+          </span>
+        </a>
+
+        <div class="header-actions">
+          <button id="theme-toggle" class="theme-toggle" type="button">
+            Dark mode
+          </button>
+          <nav class="site-nav">
+            <a href="../HomePage/index.html" class="nav-link">Discover</a>
+            <a href="../AddToCart/AddToCart.html" class="nav-link">
+              Cart <span id="cart-count" class="nav-count">0</span>
+            </a>
+            <a href="../AddtoWishlist/AddtoWishlist.html" class="nav-link">
+              Wishlist <span id="wishlist-count" class="nav-count">0</span>
+            </a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <!-- Intro copy explains the purpose of this demo checkout page. -->
+      <section class="page-heading">
+        <span class="eyebrow">Checkout</span>
+        <h1>Finish the order experience.</h1>
+        <p>
+          This page turns single-product and full-cart purchases into a polished
+          demo checkout flow.
+        </p>
+      </section>
+
+      <!-- JavaScript injects the form into the main area and totals into the sidebar. -->
+      <section class="checkout-layout">
+        <section id="checkout-main" class="surface-card checkout-main"></section>
+        <aside id="checkout-summary" class="surface-card checkout-summary"></aside>
+      </section>
+    </main>
+
+    <!-- Toast is reused for lightweight feedback after the demo order is placed. -->
+    <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+
+    <!-- Module script powers the checkout rendering, totals, and submission flow. -->
+    <script type="module" src="BuyNow.js"></script>
+  </body>
+</html>

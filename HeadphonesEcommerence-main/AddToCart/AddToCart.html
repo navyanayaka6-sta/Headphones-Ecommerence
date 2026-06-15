@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SonicCart | Cart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../shared/base.css" />
+    <link rel="stylesheet" href="AddToCart.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="../HomePage/index.html" class="brand">
+          <span class="brand-mark">SC</span>
+          <span class="brand-copy">
+            <span class="brand-kicker">Headphones demo</span>
+            <span class="brand-title">SonicCart</span>
+          </span>
+        </a>
+
+        <div class="header-actions">
+          <button id="theme-toggle" class="theme-toggle" type="button">
+            Dark mode
+          </button>
+          <nav class="site-nav">
+            <a href="../HomePage/index.html" class="nav-link">Discover</a>
+            <a href="AddToCart.html" class="nav-link active">
+              Cart <span id="cart-count" class="nav-count">0</span>
+            </a>
+            <a href="../AddtoWishlist/AddtoWishlist.html" class="nav-link">
+              Wishlist <span id="wishlist-count" class="nav-count">0</span>
+            </a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <section class="page-heading">
+        <span class="eyebrow">Cart</span>
+        <h1>Everything ready for checkout.</h1>
+        <p id="cart-summary">Loading cart details...</p>
+      </section>
+
+      <section class="collection-layout">
+        <div id="cart-list" class="collection-list"></div>
+
+        <aside class="summary-panel surface-card">
+          <h2 class="display-font">Order snapshot</h2>
+          <div id="cart-totals" class="summary-stats"></div>
+          <div class="summary-actions">
+            <button id="checkout-cart" class="btn btn-primary btn-block">
+              Checkout all
+            </button>
+            <button id="clear-cart" class="btn btn-secondary btn-block">
+              Clear cart
+            </button>
+            <a href="../HomePage/index.html" class="btn btn-ghost btn-block">
+              Continue shopping
+            </a>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+
+    <script type="module" src="AddToCart.js"></script>
+  </body>
+</html>

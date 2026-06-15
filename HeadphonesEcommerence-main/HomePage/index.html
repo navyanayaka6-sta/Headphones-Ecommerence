@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SonicCart | Headphones Store</title>
+    <!-- Preconnect helps font files start loading sooner. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Main typography pairing used across the storefront. -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Shared storefront styles load before the homepage-specific stylesheet. -->
+    <link rel="stylesheet" href="../shared/base.css" />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <!-- Shared site header: brand, search, theme toggle, and cart/wishlist navigation. -->
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="index.html" class="brand">
+          <span class="brand-mark">SC</span>
+          <span class="brand-copy">
+            <span class="brand-title">SonicCart</span>
+          </span>
+        </a>
+
+        <div class="header-actions">
+          <form id="search-form" class="search-wrap">
+            <input
+              id="search-input"
+              type="search"
+              placeholder="Search wireless, gaming, or budget headphones"
+            />
+            <button type="submit" class="btn btn-primary">Search</button>
+          </form>
+
+          <button id="theme-toggle" class="theme-toggle" type="button">
+            Dark mode
+          </button>
+
+          <nav class="site-nav">
+            <a href="index.html" class="nav-link active">Discover</a>
+            <a href="../AddToCart/AddToCart.html" class="nav-link">
+              Cart <span id="cart-count" class="nav-count">0</span>
+            </a>
+            <a href="../AddtoWishlist/AddtoWishlist.html" class="nav-link">
+              Wishlist <span id="wishlist-count" class="nav-count">0</span>
+            </a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <!-- Hero introduces the page and highlights that the catalog is data-driven. -->
+      <section class="hero surface-card">
+        <div class="hero-copy">
+          <h1 class="display-font">
+            Headphones shopping that already feels like a real storefront.
+          </h1>
+          <p>
+            This page reads your current headphone data, turns it into product
+            cards, and wires the whole flow into cart, wishlist, and buy-now
+            pages.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#catalog" class="btn btn-primary">Shop collection</a>
+            <a href="#spotlights" class="btn btn-secondary">View highlights</a>
+          </div>
+
+          <div id="hero-metrics" class="hero-metrics"></div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="feature-stack">
+            <article class="spotlight-card spotlight-primary">
+              <span>Studio energy</span>
+              <strong>Wireless comfort with all-day battery picks</strong>
+            </article>
+            <article class="spotlight-card">
+              <span>Console ready</span>
+              <strong>Browse PS5, Xbox, PC, and Switch compatible models</strong>
+            </article>
+            <article class="spotlight-card">
+              <span>Smart sorting</span>
+              <strong>Filter by budget, premium, wired, wireless, or gaming</strong>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Supporting insight cards explain what this storefront demo is designed to show. -->
+      <section id="spotlights" class="insight-grid">
+        <article class="insight-card surface-card">
+          <p class="eyebrow">Fast browse</p>
+          <h2 class="display-font">Search, sort, and filter with zero setup.</h2>
+          <p>
+            Your existing JSON powers the homepage directly, so you can keep
+            growing the catalog without rewriting cards by hand.
+          </p>
+        </article>
+
+        <article class="insight-card surface-card">
+          <p class="eyebrow">Cart flow</p>
+          <h2 class="display-font">Wishlist, cart, and checkout stay in sync.</h2>
+          <p>
+            Everything is persisted with local storage so the full browsing flow
+            works across every page in this app.
+          </p>
+        </article>
+
+        <article class="insight-card surface-card">
+          <p class="eyebrow">Design direction</p>
+          <h2 class="display-font">Furniture-style structure, audio-first look.</h2>
+          <p>
+            The layout follows the same multi-section storefront approach while
+            shifting the visual language toward premium headphones.
+          </p>
+        </article>
+      </section>
+
+      <!-- Main catalog area where JavaScript renders filters, products, and pagination. -->
+      <section id="catalog" class="catalog-section surface-card">
+        <div class="catalog-header">
+          <div class="section-heading">
+            <span class="eyebrow">Catalog</span>
+            <h2>Featured headphones</h2>
+            <p id="results-copy">
+              Loading products from your headphone dataset...
+            </p>
+          </div>
+
+          <div class="catalog-controls">
+            <div id="filter-chips" class="filter-row"></div>
+            <label class="sort-control">
+              <span>Sort by</span>
+              <select id="sort-select">
+                <option value="featured">Featured</option>
+                <option value="price-asc">Price: low to high</option>
+                <option value="price-desc">Price: high to low</option>
+                <option value="rating">Best rating</option>
+                <option value="reviews">Most reviewed</option>
+                <option value="savings">Biggest savings</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <div id="active-state" class="active-state"></div>
+        <div id="product-grid" class="product-grid"></div>
+        <div id="pagination" class="pagination"></div>
+      </section>
+
+      <!-- Horizontal rail for top-rated products with manual previous/next controls. -->
+      <section class="curation-section">
+        <div class="section-heading rail-heading">
+          <div>
+            <span class="eyebrow">Top rated</span>
+            <h2>Most-loved headsets</h2>
+          </div>
+          <div class="rail-controls">
+            <button id="rated-prev" class="rail-button" type="button">
+              Back
+            </button>
+            <button id="rated-next" class="rail-button" type="button">
+              Next
+            </button>
+          </div>
+        </div>
+        <div class="rail-window">
+          <div id="rated-rail" class="rail-track"></div>
+        </div>
+      </section>
+
+      <!-- Separate recommendation rail focused on discounts and price-drop highlights. -->
+      <section class="curation-section">
+        <div class="section-heading rail-heading">
+          <div>
+            <span class="eyebrow">Price drops</span>
+            <h2>Deals worth surfacing</h2>
+          </div>
+          <div class="rail-controls">
+            <button id="deals-prev" class="rail-button" type="button">
+              Back
+            </button>
+            <button id="deals-next" class="rail-button" type="button">
+              Next
+            </button>
+          </div>
+        </div>
+        <div class="rail-window">
+          <div id="deals-rail" class="rail-track"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Toast gives lightweight feedback for actions like cart and wishlist updates. -->
+    <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+
+    <!-- Homepage module fetches data and wires up search, filters, and product actions. -->
+    <script type="module" src="index.js"></script>
+  </body>
+</html>

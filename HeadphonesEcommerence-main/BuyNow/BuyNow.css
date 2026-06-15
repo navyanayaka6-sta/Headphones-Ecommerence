@@ -1,0 +1,178 @@
+/* Space the intro copy away from the header so the checkout page starts with breathing room. */
+.page-heading {
+  padding: 30px 0 18px;
+}
+
+/* Scale the main heading smoothly between mobile and desktop widths. */
+.page-heading h1 {
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  line-height: 1;
+}
+
+/* Use a two-column layout: form on the left, sticky summary on the right. */
+.checkout-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+  gap: 20px;
+  padding-bottom: 40px;
+}
+
+/* Give both cards matching internal spacing for a balanced layout. */
+.checkout-main,
+.checkout-summary {
+  padding: 24px;
+}
+
+/* Checkout card headings reuse the brand display font for visual hierarchy. */
+.checkout-main h2,
+.checkout-summary h2 {
+  margin: 0;
+  font-family: "Space Grotesk", system-ui, sans-serif;
+}
+
+/* Muted body copy keeps supporting text readable without competing with titles. */
+.checkout-main p,
+.checkout-summary p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* Stack the form sections with consistent spacing. */
+.checkout-form {
+  display: grid;
+  gap: 18px;
+  margin-top: 20px;
+}
+
+/* Desktop form fields are split into two columns to shorten scan length. */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+/* Wider fields like address and notes span across both columns. */
+.form-grid .field.full {
+  grid-column: 1 / -1;
+}
+
+/* Action buttons wrap cleanly if the viewport gets too narrow. */
+.checkout-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Keep both buttons wide enough to feel tappable without forcing equal widths. */
+.checkout-actions .btn {
+  flex: 1 1 220px;
+}
+
+/* The order summary behaves like a sticky sidebar on larger screens. */
+.checkout-summary {
+  display: grid;
+  gap: 18px;
+  align-self: start;
+  position: sticky;
+  top: 94px;
+}
+
+/* Summary items are stacked as a compact list of purchased products. */
+.summary-items {
+  display: grid;
+  gap: 14px;
+}
+
+/* Pair each product thumbnail with its text details in a small grid. */
+.summary-item {
+  display: grid;
+  grid-template-columns: 84px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+}
+
+/* Crop product images neatly so mismatched source images still align well. */
+.summary-item img {
+  width: 84px;
+  height: 84px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+/* Reset default margins and tighten the product title. */
+.summary-item h3 {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+/* Add small spacing between stacked pieces of product metadata. */
+.summary-item p {
+  margin: 6px 0 0;
+}
+
+/* Totals are arranged as a simple vertical pricing breakdown. */
+.summary-total-list {
+  display: grid;
+  gap: 12px;
+}
+
+/* Each total row aligns labels and values on opposite sides for quick scanning. */
+.summary-total-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+/* The final amount gets extra separation so it reads like the key figure. */
+.summary-total-row.total {
+  border-bottom: none;
+  padding-top: 16px;
+}
+
+/* Reuse the display font for emphasized money values. */
+.summary-total-row strong {
+  font-family: "Space Grotesk", system-ui, sans-serif;
+}
+
+/* Trust points mimic the reassurance blocks common in real checkout experiences. */
+.trust-points {
+  display: grid;
+  gap: 10px;
+}
+
+/* Give each reassurance block a soft panel treatment. */
+.trust-point {
+  padding: 14px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: var(--surface-soft);
+}
+
+/* Make the trust-point heading sit above its supporting sentence. */
+.trust-point strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+@media (max-width: 960px) {
+  /* Collapse the layout to one column earlier so tablets stay comfortable. */
+  .checkout-layout {
+    grid-template-columns: 1fr;
+  }
+
+  /* Remove sticky behavior once the summary sits in the normal document flow. */
+  .checkout-summary {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  /* Single-column fields are easier to fill out on phones. */
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
